@@ -3,7 +3,7 @@ import AdminNavbar from "../../components/AdminNavbar";
 import "../../styles/admin-panel.css";
 
 const defaultSettings = {
-  platformName: "Online Exam",
+  platformName: "Examora",
   logoUrl: "",
   passwordPolicy: "Minimum 8 characters with at least one number",
   notificationEmail: "",

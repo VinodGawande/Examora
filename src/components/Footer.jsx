@@ -1,7 +1,7 @@
 function Footer() {
   return (
     <footer style={styles.footer}>
-      <p style={styles.text}>Copyright 2026 Online Examination Platform</p>
+      <p style={styles.text}>Copyright 2026 Examora</p>
       <p style={styles.subtext}>Built with MERN for secure exam workflows</p>
     </footer>
   );

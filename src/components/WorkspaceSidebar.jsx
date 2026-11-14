@@ -21,7 +21,7 @@ function WorkspaceSidebar() {
     <aside className="workspace-sidebar">
       <NavLink to="/" className="workspace-brand">
         <span className="workspace-brand-mark">E</span>
-        <span>EXAMIFY</span>
+        <span>EXAMORA</span>
       </NavLink>
 
       <div className="workspace-sidebar-label">Workspace</div>

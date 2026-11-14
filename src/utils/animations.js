@@ -1,5 +1,5 @@
 /**
- * Animation utilities for the online exam platform
+ * Animation utilities for the Examora platform
  * Handles reveal animations, intersection observer, and interactive effects
  */
 

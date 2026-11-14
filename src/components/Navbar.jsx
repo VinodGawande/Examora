@@ -26,7 +26,7 @@ function Navbar() {
         <Link to="/" className="topbar-logo">
           <span className="topbar-logo-mark">E</span>
           <span>
-            <strong>EXAMIFY</strong>
+            <strong>EXAMORA</strong>
             <small>Online examination platform</small>
           </span>
         </Link>
