@@ -3,6 +3,9 @@
   position: relative;
 }
 
+.dash-page--workspace { padding-left: 278px; }
+.workspace-main { min-width: 0; }
+
 .card-surface {
   background: linear-gradient(145deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.02));
   border: 1px solid rgba(255, 255, 255, 0.08);
@@ -195,6 +198,7 @@
 }
 
 @media (max-width: 768px) {
+  .dash-page--workspace { padding-left: 0; }
   .dash-hero {
     flex-direction: column;
     align-items: flex-start;

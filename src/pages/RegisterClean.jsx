@@ -57,41 +57,17 @@ function RegisterClean() {
         <section className="auth-copy">
           <div className="auth-kicker">
             <i className="bi bi-layers" aria-hidden="true" />
-            One platform, three roles
+            Start in seconds
           </div>
           <h1>
-            Create an account that fits
-            <span className="accent"> your exam role.</span>
+            Build your next
+            <span className="accent"> best attempt.</span>
           </h1>
-          <p>
-            Join as a student or teacher with the same polished flow used across the platform. Admin accounts stay
-            protected and are managed separately.
-          </p>
-
-          <div className="auth-highlights">
-            <div className="auth-highlight">
-              <strong>For students</strong>
-              <span>Access published exams, follow secure instructions, and review your result history.</span>
-            </div>
-            <div className="auth-highlight">
-              <strong>For teachers</strong>
-              <span>Design papers, publish them cleanly, and manage attempts from one workspace.</span>
-            </div>
-          </div>
-
-          <div className="auth-stats">
-            <span className="auth-stat-pill">
-              <i className="bi bi-pencil-square" aria-hidden="true" />
-              Fast exam creation
-            </span>
-            <span className="auth-stat-pill">
-              <i className="bi bi-shield-lock" aria-hidden="true" />
-              Protected admin area
-            </span>
-            <span className="auth-stat-pill">
-              <i className="bi bi-clock-history" aria-hidden="true" />
-              Timed exam workflows
-            </span>
+          <p className="auth-copy-note">Choose a role, create your account, and start learning.</p>
+          <div className="auth-mini-features">
+            <span><i className="bi bi-person-check-fill" /> Student ready</span>
+            <span><i className="bi bi-easel2-fill" /> Teacher tools</span>
+            <span><i className="bi bi-stars" /> Smart flow</span>
           </div>
         </section>
 
@@ -103,10 +79,7 @@ function RegisterClean() {
                   <i className="bi bi-person-plus" aria-hidden="true" />
                 </div>
                 <h2>Create Account</h2>
-                <p className="auth-subtitle">
-                  Pick your role, fill in your details, and get into the platform with the same visual flow as the rest
-                  of the site.
-                </p>
+                <p className="auth-subtitle">Set up your workspace.</p>
 
                 <div className="auth-form">
                   <div className="auth-field">
@@ -133,7 +106,7 @@ function RegisterClean() {
                         />
                         <div>
                           <strong>Student</strong>
-                          <span>Attempt exams, track scores, and view result history.</span>
+                          <span>Take exams and track scores.</span>
                         </div>
                       </label>
                       <label className={`auth-role-card ${form.role === "teacher" ? "active" : ""}`}>
@@ -146,11 +119,11 @@ function RegisterClean() {
                         />
                         <div>
                           <strong>Teacher</strong>
-                          <span>Create exams, publish papers, and monitor submissions.</span>
+                          <span>Create exams and monitor results.</span>
                         </div>
                       </label>
                     </div>
-                    <p className="auth-helper">Admin accounts are created and managed separately by the platform owner.</p>
+                    <p className="auth-helper">Admin access is managed separately.</p>
                   </div>
 
                   <div className="auth-field">

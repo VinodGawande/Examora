@@ -7,6 +7,7 @@ import exams from "../data/exams";
 import MembershipStatus from "../components/MembershipStatus";
 import UpgradeModal from "../components/UpgradeModal";
 import { apiUrl } from "../utils/api";
+import WorkspaceSidebar from "../components/WorkspaceSidebar";
 
 function Dashboard() {
   const navigate = useNavigate();
@@ -77,7 +78,9 @@ function Dashboard() {
   }, [createdExams]);
 
   return (
-    <div className="dash-page">
+    <div className="dash-page dash-page--workspace">
+      <WorkspaceSidebar />
+      <div className="workspace-main">
       <div className="container">
         <div className="dash-hero card-surface">
           <div className="d-flex align-items-start gap-3 flex-wrap">
@@ -209,6 +212,7 @@ function Dashboard() {
         onClose={() => setShowUpgradeModal(false)}
         onUpgradeSuccess={() => window.location.reload()}
       />
+      </div>
     </div>
   );
 }

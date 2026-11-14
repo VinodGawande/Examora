@@ -13,6 +13,7 @@
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   box-shadow: 0 18px 50px rgba(0, 0, 0, 0.34);
   backdrop-filter: blur(16px);
+  background-color: rgba(5, 12, 22, 0.78);
 }
 
 .topbar-brand {
@@ -59,6 +60,13 @@
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.28),
     0 12px 30px rgba(0, 0, 0, 0.28);
+  transform: perspective(500px) rotateY(-12deg);
+  transition: transform 240ms ease, box-shadow 240ms ease;
+}
+
+.topbar-logo:hover .topbar-logo-mark {
+  transform: perspective(500px) rotateY(12deg) translateY(-2px);
+  box-shadow: 0 16px 34px rgba(124, 216, 255, 0.24);
 }
 
 .topbar-subtext {
@@ -103,6 +111,13 @@
 .topbar-link--workspace {
   background: linear-gradient(135deg, rgba(6, 182, 212, 0.18), rgba(96, 165, 250, 0.15));
   border-color: rgba(96, 165, 250, 0.24);
+}
+
+.topbar-link--active {
+  color: #07111b;
+  background: linear-gradient(135deg, #ffd47a, #7cd8ff);
+  border-color: transparent;
+  box-shadow: 0 10px 24px rgba(124, 216, 255, 0.2);
 }
 
 .topbar-logout {

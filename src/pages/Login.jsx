@@ -67,41 +67,17 @@ function Login() {
         <section className="auth-copy">
           <div className="auth-kicker">
             <i className="bi bi-shield-check" aria-hidden="true" />
-            Secure exam access
+            Examly workspace
           </div>
           <h1>
-            Welcome back to your
-            <span className="accent"> exam workspace.</span>
+            Your exams.
+            <span className="accent"> One calm space.</span>
           </h1>
-          <p>
-            Sign in to continue your exam journey with the same focused interface students, teachers, and admins use
-            across the platform.
-          </p>
-
-          <div className="auth-highlights">
-            <div className="auth-highlight">
-              <strong>Student ready</strong>
-              <span>Join exams, review results, and stay in a distraction-free flow.</span>
-            </div>
-            <div className="auth-highlight">
-              <strong>Teacher controls</strong>
-              <span>Create papers, publish attempts, and monitor performance in one place.</span>
-            </div>
-          </div>
-
-          <div className="auth-stats">
-            <span className="auth-stat-pill">
-              <i className="bi bi-camera-video" aria-hidden="true" />
-              AI proctoring
-            </span>
-            <span className="auth-stat-pill">
-              <i className="bi bi-bar-chart" aria-hidden="true" />
-              Instant results
-            </span>
-            <span className="auth-stat-pill">
-              <i className="bi bi-people" aria-hidden="true" />
-              Role-based access
-            </span>
+          <p className="auth-copy-note">Sign in and get straight to your dashboard.</p>
+          <div className="auth-mini-features">
+            <span><i className="bi bi-lightning-charge-fill" /> Fast access</span>
+            <span><i className="bi bi-bar-chart-fill" /> Live results</span>
+            <span><i className="bi bi-lock-fill" /> Secure</span>
           </div>
         </section>
 
@@ -111,9 +87,7 @@ function Login() {
               <i className="bi bi-person-circle" aria-hidden="true" />
             </div>
             <h2>Sign In</h2>
-            <p className="auth-subtitle">
-              Student, teacher, and admin sabhi login ke baad home par land karte hain, jahan se apna workspace open kar sakte hain.
-            </p>
+            <p className="auth-subtitle">Continue to your workspace.</p>
 
             <div className="auth-form">
               <div className="auth-field">
@@ -146,7 +120,6 @@ function Login() {
                 {loading ? "Signing In..." : "Sign In"}
               </button>
 
-              <p className="auth-footer-note">Sign in ke baad pehle home khulega, phir aap apne role ke hisaab se kisi bhi section me ja sakte hain.</p>
             </div>
 
             <p className="auth-switch">

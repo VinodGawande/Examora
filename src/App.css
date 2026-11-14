@@ -109,9 +109,29 @@
 .exam-card:hover,
 .stat-card:hover,
 .result-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.45) !important;
-  border-color: rgba(255, 255, 255, 0.15) !important;
+  transform: perspective(900px) translateY(-8px) rotateX(1.5deg) rotateY(-1deg);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.48), 0 0 0 1px rgba(124,216,255,0.08) !important;
+  border-color: rgba(124, 216, 255, 0.28) !important;
+}
+
+.container {
+  position: relative;
+}
+
+.btn {
+  border-radius: 12px;
+  box-shadow: 0 10px 22px rgba(0,0,0,0.18);
+}
+
+.btn-primary,
+.btn-success {
+  background-image: linear-gradient(135deg, #7cd8ff, #06b6d4) !important;
+  box-shadow: 0 12px 28px rgba(6,182,212,0.22);
+}
+
+.btn-primary:hover,
+.btn-success:hover {
+  box-shadow: 0 16px 34px rgba(6,182,212,0.34) !important;
 }
 
 /* ===== BUTTON TRANSITIONS ===== */

@@ -70,6 +70,9 @@
   font-size: clamp(2.6rem, 4vw, 3.4rem);
   line-height: 1.1;
   margin: 12px 0 18px;
+  max-width: 610px;
+  font-weight: 800;
+  letter-spacing: -0.045em;
 }
 
 .accent {
@@ -154,7 +157,8 @@
 
 .hero-visual {
   position: relative;
-  animation: float-up 1s ease-out;
+  perspective: 1200px;
+  animation: float-up 1s ease-out, hero-float 7s ease-in-out 1s infinite alternate;
 }
 
 .glass-panel {
@@ -163,6 +167,14 @@
   border-radius: 20px;
   box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
   overflow: hidden;
+  transform: rotateY(-7deg) rotateX(3deg);
+  transform-style: preserve-3d;
+  transition: transform 400ms ease, box-shadow 400ms ease;
+}
+
+.glass-panel:hover {
+  transform: rotateY(0deg) rotateX(0deg) translateY(-8px);
+  box-shadow: 0 38px 90px rgba(0, 0, 0, 0.55), 0 0 40px rgba(6, 182, 212, 0.12);
 }
 
 .panel-header {
@@ -294,6 +306,26 @@
   align-items: center;
   margin-bottom: 14px;
 }
+
+.role-tile {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  min-height: 66px;
+  text-align: left;
+  animation: none;
+}
+.role-tile > i { width: 38px; height: 38px; display: grid; place-items: center; margin: 0 !important; border-radius: 11px; font-size: 1.1rem; }
+.role-tile span { display: grid; gap: 3px; }
+.role-tile strong { color: #f2f8ff; font-size: 0.95rem; }
+.role-tile small { color: var(--muted); font-size: 0.75rem; line-height: 1.2; }
+.role-tile--student { border-color: rgba(45, 226, 190, 0.42); background: rgba(20, 184, 166, 0.12); }
+.role-tile--student > i { color: #2de2be; background: rgba(45, 226, 190, 0.15); }
+.role-tile--teacher { border-color: rgba(72, 153, 255, 0.42); background: rgba(37, 99, 235, 0.13); }
+.role-tile--teacher > i { color: #70aaff; background: rgba(72, 153, 255, 0.15); }
+.role-tile--admin { border-color: rgba(245, 183, 49, 0.42); background: rgba(180, 117, 10, 0.16); }
+.role-tile--admin > i { color: #ffc34e; background: rgba(245, 183, 49, 0.15); }
 
 .ticker-item {
   padding: 10px 12px;
@@ -518,6 +550,11 @@
 @keyframes float-up {
   from { transform: translateY(12px); opacity: 0; }
   to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes hero-float {
+  from { transform: translateY(0); }
+  to { transform: translateY(-12px); }
 }
 
 @keyframes slow-float {

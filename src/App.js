@@ -30,6 +30,7 @@ import { initializeRevealAnimations } from "./utils/animations";
 function AppLayout() {
   const location = useLocation();
   const isExamMode = location.pathname === "/exam";
+  const isStudentWorkspace = location.pathname === "/dashboard";
   const isAdminArea = location.pathname.startsWith("/admin");
   const hideFooter = isExamMode || isAdminArea;
 
@@ -49,7 +50,7 @@ function AppLayout() {
 
   return (
     <>
-      <Navbar />
+      {!isStudentWorkspace && <Navbar />}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />

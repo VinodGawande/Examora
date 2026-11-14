@@ -1,0 +1,124 @@
+/* Shared visual language for the inner product pages. */
+.dash-page,
+.profile-page,
+.membership-page,
+.exam-page,
+.create-page,
+.result-page,
+.result-history-page,
+.admin-page {
+  position: relative;
+  min-height: calc(100vh - 78px);
+  isolation: isolate;
+}
+
+.dash-page::before,
+.profile-page::before,
+.membership-page::before,
+.exam-page::before,
+.create-page::before,
+.result-page::before,
+.result-history-page::before,
+.admin-page::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(rgba(124,216,255,0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(124,216,255,0.025) 1px, transparent 1px);
+  background-size: 54px 54px;
+  mask-image: radial-gradient(80% 70% at 50% 15%, #000 20%, transparent 90%);
+}
+
+.dash-hero,
+.result-hero,
+.profile-banner,
+.membership-hero,
+.exam-panel,
+.exam-question,
+.form-panel,
+.preview-panel,
+.empty-state,
+.comparison-card,
+.profile-panel,
+.profile-stat-card,
+.admin-surface,
+.admin-panel-card,
+.admin-stat-tile {
+  border: 1px solid rgba(124, 216, 255, 0.13) !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.06), 0 20px 55px rgba(0,0,0,0.28) !important;
+  backdrop-filter: blur(16px);
+  transition: transform 240ms ease, border-color 240ms ease, box-shadow 240ms ease;
+}
+
+.dash-hero:hover,
+.result-hero:hover,
+.profile-banner:hover,
+.membership-hero:hover,
+.exam-panel:hover,
+.exam-question:hover,
+.form-panel:hover,
+.preview-panel:hover,
+.profile-panel:hover,
+.admin-surface:hover,
+.admin-panel-card:hover,
+.admin-stat-tile:hover {
+  transform: translateY(-3px);
+  border-color: rgba(124, 216, 255, 0.28) !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.08), 0 28px 70px rgba(0,0,0,0.36) !important;
+}
+
+.section-heading h1,
+.section-heading h2,
+.section-heading h3,
+.admin-header h2,
+.admin-header h3,
+.profile-banner h1,
+.membership-hero h1 {
+  letter-spacing: -0.035em;
+}
+
+.form-control,
+.form-select,
+.form-control:focus,
+.form-select:focus {
+  border-radius: 12px !important;
+  border-color: rgba(124,216,255,0.14) !important;
+  background-color: rgba(4, 12, 24, 0.76) !important;
+  color: #e9f5ff !important;
+}
+
+.form-control:focus,
+.form-select:focus {
+  border-color: rgba(124,216,255,0.55) !important;
+  box-shadow: 0 0 0 4px rgba(124,216,255,0.1) !important;
+}
+
+.card-header.bg-primary {
+  background: linear-gradient(135deg, #0e7490, #2563eb) !important;
+  border-bottom: 1px solid rgba(124,216,255,0.25) !important;
+}
+
+.alert {
+  border-radius: 14px !important;
+  border: 1px solid rgba(255,255,255,0.1) !important;
+}
+
+@media (max-width: 768px) {
+  .dash-hero:hover,
+  .result-hero:hover,
+  .profile-banner:hover,
+  .membership-hero:hover,
+  .exam-panel:hover,
+  .exam-question:hover,
+  .form-panel:hover,
+  .preview-panel:hover,
+  .profile-panel:hover,
+  .admin-surface:hover,
+  .admin-panel-card:hover,
+  .admin-stat-tile:hover {
+    transform: none;
+  }
+}

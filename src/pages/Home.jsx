@@ -1,23 +1,14 @@
 import { Link } from "react-router-dom";
-import { useEffect, useMemo, useState } from "react";
+import { useMemo } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import "../styles/home.css";
 import { getDefaultRouteForRole, getStoredRole, isUserLoggedIn } from "../utils/auth";
-import { apiUrl } from "../utils/api";
 
 function Home() {
-  const [stats, setStats] = useState({ totalExams: 0 });
   const isLoggedIn = isUserLoggedIn();
   const role = getStoredRole();
   const roleHome = getDefaultRouteForRole(role);
-
-  useEffect(() => {
-    fetch(apiUrl("/results"))
-      .then((res) => res.json())
-      .then((data) => setStats({ totalExams: data.length }))
-      .catch((err) => console.error("Error fetching stats:", err));
-  }, []);
 
   const featureList = useMemo(
     () => [
@@ -81,10 +72,10 @@ function Home() {
   ];
 
   const statCards = [
-    { label: "Exams completed", value: `${stats.totalExams}+`, tone: "primary" },
-    { label: "Avg. satisfaction", value: "4.9/5", tone: "success" },
-    { label: "Institutions onboarded", value: "32", tone: "warning" },
-    { label: "Platform uptime", value: "99.98%", tone: "info" },
+    { label: "Exams taken", value: "500k+", tone: "primary" },
+    { label: "Platform uptime", value: "99.9%", tone: "success" },
+    { label: "Question banks", value: "15k+", tone: "warning" },
+    { label: "App rating", value: "4.8★", tone: "info" },
   ];
 
   const chips = [
@@ -104,12 +95,12 @@ function Home() {
           <div className="hero-copy">
             <div className="pill">2026 release • built for rigorous exams</div>
             <h1>
-              Confident exams,
-              <span className="accent"> zero chaos.</span>
+              The Ultimate <span className="accent">Online</span>
+              <br />Examination Platform
             </h1>
             <p className="lead">
-              A focused MERN platform that keeps students in flow, teachers in control, and admins in the loop
-              with instant, verifiable results.
+              Create, conduct, and analyze exams seamlessly. Built for students, teachers, and administrators with
+              secure proctoring, instant grading, and detailed analytics.
             </p>
 
             <div className="trust-bar">
@@ -119,8 +110,8 @@ function Home() {
                 <span className="mini-avatar">M</span>
               </div>
               <div>
-                <strong>2.3k+</strong> exams run last semester
-                <p className="muted small mb-0">Trusted by institutes and bootcamps</p>
+                <strong>4.9/5</strong> average platform rating
+                <p className="muted small mb-0">Secure, focused, and built for every role</p>
               </div>
             </div>
 
@@ -210,11 +201,10 @@ function Home() {
       </section>
 
       <section className="container section">
-        <div className="ticker card-surface">
-          <div className="ticker-item"><i className="bi bi-shield-lock me-2" /> Proctor-ready</div>
-          <div className="ticker-item"><i className="bi bi-cloud-download me-2" /> Instant exports</div>
-          <div className="ticker-item"><i className="bi bi-people me-2" /> Team roles</div>
-          <div className="ticker-item"><i className="bi bi-lightning-charge me-2" /> Auto-scoring</div>
+        <div className="ticker card-surface role-grid">
+          <div className="ticker-item role-tile role-tile--student"><i className="bi bi-person-fill" /><span><strong>For Students</strong><small>Attempt exams, track progress, instant results.</small></span></div>
+          <div className="ticker-item role-tile role-tile--teacher"><i className="bi bi-pencil-square" /><span><strong>For Teachers</strong><small>Easy exam builder, auto-grading, question banks.</small></span></div>
+          <div className="ticker-item role-tile role-tile--admin"><i className="bi bi-shield-lock-fill" /><span><strong>For Administrators</strong><small>Secure environment and result management.</small></span></div>
         </div>
 
         <div className="section-heading">
@@ -250,7 +240,7 @@ function Home() {
         </div>
       </section>
 
-      <section className="section strip">
+      <section className="section strip" id="how-it-works">
         <div className="container">
           <div className="section-heading with-line">
             <h3>How it flows</h3>

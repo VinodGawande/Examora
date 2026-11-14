@@ -24,17 +24,27 @@ function Navbar() {
     <header className="topbar-shell">
       <div className="topbar-brand">
         <Link to="/" className="topbar-logo">
-          <span className="topbar-logo-mark">OX</span>
+          <span className="topbar-logo-mark">E</span>
           <span>
-            <strong>Online Exam</strong>
-            <small>Secure assessment workspace</small>
+            <strong>EXAMIFY</strong>
+            <small>Online examination platform</small>
           </span>
         </Link>
         {isLoggedIn && <div className="topbar-subtext">{user?.name || role} • {role}</div>}
       </div>
 
       <nav className="topbar-links" aria-label="Main navigation">
-        <Link to="/" className="topbar-link">Home</Link>
+        <Link to="/" className={`topbar-link ${location.pathname === "/" ? "topbar-link--active" : ""}`}>
+          Home
+        </Link>
+
+        {!isLoggedIn && (
+          <>
+            <a href="#features" className="topbar-link topbar-link--public">Features</a>
+            <a href="#how-it-works" className="topbar-link topbar-link--public">How it works</a>
+            <Link to="/membership" className="topbar-link topbar-link--public">Pricing</Link>
+          </>
+        )}
 
         {!isLoggedIn && (
           <>
@@ -45,10 +55,17 @@ function Navbar() {
 
         {isLoggedIn && (
           <>
-            <Link to={workspaceRoute} className="topbar-link topbar-link--workspace">
+            <Link
+              to={workspaceRoute}
+              className={`topbar-link topbar-link--workspace ${location.pathname === workspaceRoute ? "topbar-link--active" : ""}`}
+            >
               {role === "teacher" ? "Teacher Panel" : role === "admin" ? "Admin Panel" : "Dashboard"}
             </Link>
-            {role === "student" && <Link to="/history" className="topbar-link">Results</Link>}
+            {role === "student" && (
+              <Link to="/history" className={`topbar-link ${location.pathname === "/history" ? "topbar-link--active" : ""}`}>
+                Results
+              </Link>
+            )}
             {role === "teacher" && <Link to="/teacher/create" className="topbar-link">Create Exam</Link>}
             <button onClick={handleLogout} className="topbar-logout">
               Logout

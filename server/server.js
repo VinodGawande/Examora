@@ -19,8 +19,6 @@ const DEFAULT_ADMIN = {
 app.use(cors());
 app.use(express.json());
 
-app.use("/api/membership", membershipRoutes);
-
 async function ensureDefaultAdmin() {
   try {
     const existingAdmin = await User.findOne({ email: DEFAULT_ADMIN.email });
@@ -155,14 +153,40 @@ async function ensureUsageLimits() {
   }
 }
 
-mongoose
-  .connect(process.env.MONGO_URI)
-  .then(async () => {
-    console.log("MongoDB connected");
-    await ensureDefaultAdmin();
-    await ensureUsageLimits();
-  })
-  .catch((err) => console.error("MongoDB error:", err));
+let databaseConnection;
+
+if (!process.env.MONGO_URI) {
+  console.error("MONGO_URI is not configured. Database-backed routes will be unavailable.");
+} else {
+  databaseConnection = mongoose
+    .connect(process.env.MONGO_URI)
+    .then(async () => {
+      console.log("MongoDB connected");
+      await ensureDefaultAdmin();
+      await ensureUsageLimits();
+    })
+    .catch((err) => {
+      console.error("MongoDB error:", err.message);
+      throw err;
+    });
+}
+
+// Vercel invokes the Express app as a serverless function. Waiting for the
+// shared connection prevents the first login request from racing the DB boot.
+app.use(async (req, res, next) => {
+  if (!databaseConnection) {
+    return next();
+  }
+
+  try {
+    await databaseConnection;
+    next();
+  } catch (error) {
+    res.status(503).json({ message: "Database is temporarily unavailable" });
+  }
+});
+
+app.use("/api/membership", membershipRoutes);
 
 app.get("/", (req, res) => {
   res.send("Backend running with MongoDB");
@@ -469,6 +493,11 @@ app.delete("/results/:id", async (req, res) => {
 
 
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
-});
+
+if (!process.env.VERCEL) {
+  app.listen(PORT, () => {
+    console.log(`Server running on http://localhost:${PORT}`);
+  });
+}
+
+module.exports = app;
